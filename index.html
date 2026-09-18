@@ -9,6 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -22,6 +29,10 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+      </button>
       <a href="https://drive.google.com/uc?export=download&id=1hJd5jYGub8vkjQLBfkAVhOvM3TPjGL8E" class="btn btn-ghost" id="resume-link" target="_blank" rel="noopener">Resume</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
@@ -49,7 +60,7 @@
   <section class="about" id="about">
     <div class="wrap">
       <h2 class="section-title">About</h2>
-      <div class="about-grid">
+      <div class="about-grid reveal">
         <p class="about-text">B.E. Computer Science (Artificial Intelligence &amp; Machine Learning) student at V.S.B. Engineering College, Karur. I strengthen my problem-solving through Java and competitive programming, and I'm currently apprenticing as a Software Test Engineer &mdash; exploring how AI can make QA smarter while building full-stack AI systems on my own time.</p>
         <div class="meta-grid">
           <div class="meta-item">
@@ -74,54 +85,136 @@
       <h2 class="section-title">Selected Work</h2>
       <div class="project-grid">
 
-        <article class="project-card">
-          <span class="project-dot dot-violet"></span>
-          <h3>AI Resume Screener</h3>
-          <span class="project-stack">FastAPI &middot; React &middot; PostgreSQL &middot; Sentence-Transformers</span>
-          <p>Full-stack resume screening platform using semantic similarity and NLP-based profiling, with explainable, JWT-secured AI scoring.</p>
+        <div class="project-card-wrap reveal">
+          <div class="project-card">
+            <span class="project-dot dot-violet"></span>
+            <h3>AI Resume Screener</h3>
+            <span class="project-stack">FastAPI &middot; React &middot; PostgreSQL &middot; Sentence-Transformers</span>
+            <p>Full-stack resume screening platform using semantic similarity and NLP-based profiling, with explainable, JWT-secured AI scoring.</p>
+            <button type="button" class="case-toggle" data-case="case-1">
+              View case study
+              <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+          </div>
           <div class="project-links">
             <a href="https://ai-resume-screener-nine-mu.vercel.app" target="_blank" rel="noopener">Live Demo &rarr;</a>
             <!-- TODO: add the GitHub repo link once you share it -->
             <a href="#" class="link-todo" data-todo="Add GitHub repo link">GitHub &rarr;</a>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card">
-          <span class="project-dot dot-gold"></span>
-          <h3>Smart Inventory Management System</h3>
-          <span class="project-stack">FastAPI &middot; React &middot; PostgreSQL</span>
-          <p>Full-stack inventory platform with role-based access, real-time stock tracking, AI demand forecasting, and QR-based POS.</p>
+        <div class="project-card-wrap reveal">
+          <div class="project-card">
+            <span class="project-dot dot-gold"></span>
+            <h3>Smart Inventory Management System</h3>
+            <span class="project-stack">FastAPI &middot; React &middot; PostgreSQL</span>
+            <p>Full-stack inventory platform with role-based access, real-time stock tracking, AI demand forecasting, and QR-based POS.</p>
+            <button type="button" class="case-toggle" data-case="case-2">
+              View case study
+              <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+          </div>
           <div class="project-links">
             <!-- TODO: add live demo link once deployed -->
             <a href="#" class="link-todo" data-todo="Add live demo link">Live Demo &rarr;</a>
             <!-- TODO: add the GitHub repo link once you share it -->
             <a href="#" class="link-todo" data-todo="Add GitHub repo link">GitHub &rarr;</a>
           </div>
-        </article>
+        </div>
 
-        <article class="project-card">
-          <span class="project-dot dot-cyan"></span>
-          <h3>VirtuFit</h3>
-          <span class="project-stack">React &middot; Vite &middot; Node.js &middot; MediaPipe &middot; Firebase &middot; Cloudinary</span>
-          <p>AR e-commerce platform with real-time virtual try-on using MediaPipe FaceMesh, plus AI-based product recommendations.</p>
+        <div class="project-card-wrap reveal">
+          <div class="project-card">
+            <span class="project-dot dot-cyan"></span>
+            <h3>VirtuFit</h3>
+            <span class="project-stack">React &middot; Vite &middot; Node.js &middot; MediaPipe &middot; Firebase &middot; Cloudinary</span>
+            <p>AR e-commerce platform with real-time virtual try-on using MediaPipe FaceMesh, plus AI-based product recommendations.</p>
+            <button type="button" class="case-toggle" data-case="case-3">
+              View case study
+              <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+          </div>
           <div class="project-links">
             <!-- TODO: add live demo link once deployed -->
             <a href="#" class="link-todo" data-todo="Add live demo link">Live Demo &rarr;</a>
             <!-- TODO: add the GitHub repo link once you share it -->
             <a href="#" class="link-todo" data-todo="Add GitHub repo link">GitHub &rarr;</a>
           </div>
-        </article>
+        </div>
 
       </div>
     </div>
   </section>
+
+  <template id="case-1">
+    <span class="modal-dot dot-violet"></span>
+    <h3>AI Resume Screener</h3>
+    <div class="case-study">
+      <div class="case-block">
+        <span class="case-label">Problem</span>
+        <p>Manually comparing resumes against job descriptions is slow and inconsistent.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Approach</span>
+        <p>Built a full-stack resume screening platform using semantic similarity and NLP-based Resume DNA profiling, with explainable AI scoring and JWT-secured results.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Result</span>
+        <p>Automated resume parsing and embedding-based candidate matching that identifies relevant skills against job descriptions.</p>
+      </div>
+    </div>
+  </template>
+
+  <template id="case-2">
+    <span class="modal-dot dot-gold"></span>
+    <h3>Smart Inventory Management System</h3>
+    <div class="case-study">
+      <div class="case-block">
+        <span class="case-label">Problem</span>
+        <p>Manual inventory monitoring made it hard to track stock, transactions, and demand accurately.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Approach</span>
+        <p>Built a full-stack inventory platform with role-based access, real-time stock tracking, barcode scanning, and QR-based POS, backed by FastAPI and PostgreSQL.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Result</span>
+        <p>Automated inventory insights and AI demand forecasting that support data-driven stock planning and reduce manual monitoring.</p>
+      </div>
+    </div>
+  </template>
+
+  <template id="case-3">
+    <span class="modal-dot dot-cyan"></span>
+    <h3>VirtuFit</h3>
+    <div class="case-study">
+      <div class="case-block">
+        <span class="case-label">Problem</span>
+        <p>Shoppers can't tell how an accessory will look before buying it online.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Approach</span>
+        <p>Built an AR e-commerce platform with real-time virtual try-on using MediaPipe FaceMesh, integrated with authentication, product management, checkout, and AI-based recommendations.</p>
+      </div>
+      <div class="case-block">
+        <span class="case-label">Result</span>
+        <p>Interactive virtual accessory visualization directly in the browser, with a full-stack shopping workflow and personalized AI-driven recommendations.</p>
+      </div>
+    </div>
+  </template>
+
+  <dialog class="case-modal" id="case-modal">
+    <button type="button" class="case-modal-close" id="case-modal-close" aria-label="Close case study">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+    <div class="case-modal-content" id="case-modal-content"></div>
+  </dialog>
 
   <section class="experience" id="experience">
     <div class="wrap">
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
 
-        <div class="timeline-item timeline-current">
+        <div class="timeline-item timeline-current reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-head">
@@ -137,7 +230,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-head">
@@ -152,7 +245,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-head">
@@ -170,7 +263,7 @@
     <div class="wrap">
       <h2 class="section-title">Skills &amp; Certifications</h2>
       <div class="skills-grid">
-        <div class="skills-block">
+        <div class="skills-block reveal">
           <h3>Technical Skills</h3>
           <div class="tag-row">
             <span class="tag">Java</span>
@@ -190,7 +283,7 @@
             <span class="tag">SQL</span>
           </div>
         </div>
-        <div class="skills-block">
+        <div class="skills-block reveal">
           <h3>Certifications &amp; Achievements</h3>
           <ul class="cert-list">
             <li>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</li>
@@ -205,7 +298,7 @@
   </section>
 
   <section class="contact" id="contact">
-    <div class="wrap contact-inner">
+    <div class="wrap contact-inner reveal">
       <h2 class="section-title">Let's Connect</h2>
       <p class="contact-lede">Open to opportunities in AI/ML engineering and software testing. Feel free to reach out.</p>
       <div class="contact-links">
